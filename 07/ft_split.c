@@ -9,8 +9,8 @@ int ft_check(char ch, char *charset);
 
 int main(void)
 {
-	char *str = "                   macacos com duas maos esquerdas tendem a morrer na natureza";
-	char charset[] = " ";
+	char *str = "";
+	char charset[] = "";
 	char **strs;
 	int ind = 0;
 
@@ -27,7 +27,6 @@ char **ft_split(char *str, char *charset)
 {
 	char **strs;
 	int str_count;
-	int ind;
 	char *sep;
 	
 	str_count = ft_str_count(str, charset);

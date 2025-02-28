@@ -13,5 +13,6 @@ int ft_putstr(char * str)
 
 	ind = 0;
 	while (str[x] != '\0')
-		x++;
+		ind++;
+	return(ind);
 }

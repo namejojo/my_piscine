@@ -4,7 +4,7 @@ int ft_strcmp(char *s1, char *s2);
 
 int main (void)
 {
-	printf("%d", ft_strcmp("abA", "abAa"));
+	printf("%d", ft_strcmp("", ""));
 }
 
 int ft_strcmp(char *s1, char *s2)

@@ -2,15 +2,14 @@
 
 void ft_putstr(char * str);
 
-int main (void){
+int main (void)
+{
 	ft_putstr("hoje eu nao me apeteceu");
 }
 
-void ft_putstr(char * str){
+void ft_putstr(char * str)
+{
 	int x;
-	while (str[x] != '\0')
-		{
-			x++;
-		}
-	write(1,"\n",1);
+	while (str[x++] != '\0');
+		write(1,"\n",1);
 }

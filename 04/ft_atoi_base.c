@@ -7,7 +7,7 @@ int str_len(char * str);
 
 int main (void)
 {
-	printf("%d", ft_atoi_base("        -+-+2A5Daec", "0123456789ABCDEF"));
+	printf("%d", ft_atoi_base("ffffffff", "0123456789abcdef"));
 }
 
 int ft_atoi_base(char *str, char *base)
