@@ -3,6 +3,12 @@
 
 void ft_putnbr(int nb);
 
+
+int main (void)
+{
+	ft_putnbr(234326353);
+}
+
 int nbm_lenght(int nb)
 {
 	int a = nb, b = 0;
@@ -12,11 +18,6 @@ int nbm_lenght(int nb)
 		b++;
 	}
 	return b;
-}
-
-int main (void)
-{
-	ft_putnbr(234326353);
 }
 
 void ft_putnbr(int nb){

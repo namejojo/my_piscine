@@ -14,6 +14,4 @@ int nbrlen(int nbr){
 
 }
 
-int main (int a)(
-
-)
+int main (int a)
