@@ -54,5 +54,5 @@ void ft_putnbr(int num)
 
 int main(void)
 {
-	ft_putnbr(1230);
+	ft_putnbr(12301);
 }

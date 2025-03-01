@@ -3,62 +3,94 @@
 
 int elevated(int a);
 void ft_putnbr(int nb);
-int nbm_lenght(int nb);
+int nbrlen(int nb);
+int	check(int n);
+void	ft_print_r_combn(int n);
 
-int main (void){
-	ft_putnbr(2);
+int	main(void)
+{
+	ft_print_r_combn(8);
 }
 
-void ft_putnbr(int n){
-	char ch;
-	int i, a, b, c = 0;
-	if(n >= 0 && n <= 10){
-		n = elevated(n);
+int l_dig(int n, int l)
+{
+	while(l > 0)
+	{
+		n = n / 10;
+		l--;
+	}
+	return (n % 10);
+}
 
-		while(c != n){
-			b = nbm_lenght(c);
+int r_dig(int n, int r)
+{
+	while(r > 1)
+	{
+		n = n / 10;
+		r--;
+	}
+	return (n % 10);
+}
 
-			while (b >= 0){
-				i = 0;
-				a = c;
+int	check(int n)
+{
+	int l;
+	int l_com;
+	int r;
+	int r_com;
 
-				while(i != b){
-					a = a/10;
-					i++;
-				}
-				if (a >= 10)
-					a = a%10;
-				ch = a + '0';
-					// if( == 2)
-						write(1, &ch, 1);
-				b--;
-			}
-			// write (1, " ", 1);
-			c++;
+	l = nbrlen(n);
+	while(--l >= 1)
+	{
+		l_com = l_dig(n , l);
+		r = nbrlen(n) - (nbrlen(n) - l);
+		while(r >= 1)
+		{
+			r_com = r_dig(n, r--);
+			if(l_com >= r_com)
+				return (0);
 		}
 	}
-	else
-		write(1,"BAD\n",4);
+	return (1);
 }
 
-int elevated(int a)
+void	ft_print_r_combn(int n)
 {
-	int c = 1;
+	int num;
 
-	while (a != 0){
-		c = c*10;
+	num = elevated(n - 2);
+	while(nbrlen(num) < n + 1)
+	{
+		if(check(num))
+		{
+			if(nbrlen(num) < n)
+				printf("0");
+			printf("%d ",num);
+		}
+		num++;
+	}
+}
+
+int	elevated(int a)
+{
+	int len = 1;
+
+	while (a > 0)
+	{
+		len = len*10;
 		a--;
 	}
-	return c;
+	return len;
 }
 
-int nbm_lenght(int nb)
+int	nbrlen(int nb)
 {
-	int b = 0;
+	int len = 1;
 
-	while (nb >=10){
+	while (nb >=10)
+	{
 		nb = nb/10;
-		b++;
+		len++;
 	}
-	return b;
+	return len;
 }

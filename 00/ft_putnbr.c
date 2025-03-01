@@ -6,7 +6,7 @@ void ft_putnbr(int nb);
 
 int main (void)
 {
-	ft_putnbr(234326353);
+	ft_putnbr(2034326353);
 }
 
 int nbm_lenght(int nb)
@@ -40,4 +40,30 @@ void ft_putnbr(int nb){
 		b--;
 	}
 	write (1, "\n", 1);
+}
+
+// new putnbr
+
+int f_dig(int n, int s)
+{
+	while(s > 0)
+	{
+		n = n / 10;
+		s--;
+	}
+	return (n % 10);
+}
+
+int	check(int n)
+{
+	int l;
+
+
+	l = nbrlen(n) - 1;
+	while(l >= 0)
+	{
+		printf("%d ", f_dig(n, l));
+
+		l--;
+	}
 }
