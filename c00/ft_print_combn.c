@@ -9,7 +9,7 @@ void	ft_print_r_combn(int n);
 
 int	main(void)
 {
-	ft_print_r_combn(8);
+	ft_print_r_combn(7);
 }
 
 int l_dig(int n, int l)
@@ -64,8 +64,8 @@ void	ft_print_r_combn(int n)
 		if(check(num))
 		{
 			if(nbrlen(num) < n)
-				printf("0");
-			printf("%d ",num);
+				putnbr(0);
+			putnbr(num);
 		}
 		num++;
 	}
