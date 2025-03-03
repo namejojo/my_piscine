@@ -1,15 +1,15 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int elevated(int a);
+int ft_elev(int a);
 void ft_putnbr(int nb);
-int nbrlen(int nb);
+int ft_nbrlen(int nb);
 int	check(int n);
-void	ft_print_r_combn(int n);
+void	ft_print_combn(int n);
 
 int	main(void)
 {
-	ft_print_r_combn(7);
+	ft_print_combn(4);
 }
 
 int l_dig(int n, int l)
@@ -39,11 +39,11 @@ int	check(int n)
 	int r;
 	int r_com;
 
-	l = nbrlen(n);
+	l = ft_nbrlen(n);
 	while(--l >= 1)
 	{
 		l_com = l_dig(n , l);
-		r = nbrlen(n) - (nbrlen(n) - l);
+		r = ft_nbrlen(n) - (ft_nbrlen(n) - l);
 		while(r >= 1)
 		{
 			r_com = r_dig(n, r--);
@@ -54,43 +54,77 @@ int	check(int n)
 	return (1);
 }
 
-void	ft_print_r_combn(int n)
+void	ft_print_combn(int n)
 {
 	int num;
 
-	num = elevated(n - 2);
-	while(nbrlen(num) < n + 1)
+
+	num = ft_elev(n - 2);
+	while(ft_nbrlen(num) < n + 1)
 	{
 		if(check(num))
 		{
-			if(nbrlen(num) < n)
-				putnbr(0);
-			putnbr(num);
+			if(ft_nbrlen(num) < n)
+				write(1, "0", 1);
+			ft_putnbr(num);
+			write(1, " ", 1);
 		}
 		num++;
 	}
 }
 
-int	elevated(int a)
+int	ft_nbrlen(int nbr)
 {
 	int len = 1;
 
-	while (a > 0)
+	while (nbr >=10)
 	{
-		len = len*10;
-		a--;
+		nbr = nbr/10;
+		len++;
 	}
 	return len;
 }
 
-int	nbrlen(int nb)
+void putdigit(int num)
 {
-	int len = 1;
+	int a;
 
-	while (nb >=10)
+	a = num + 48;
+	write(1, &a, 1);
+}
+
+int ft_elev(int len)
+{
+	int num;
+
+	num = 1;
+	while (len > 0)
 	{
-		nb = nb/10;
-		len++;
+		num = num * 10;
+		len--;
 	}
-	return len;
+	return (num);
+}
+
+void ft_putnbr(int num)
+{
+	int div;
+	int c_div;
+	int pr;
+
+	div = ft_nbrlen(num);
+	while(div > 0)
+	{
+
+		pr = num;
+		c_div = div;
+		while(c_div > 1)
+		{
+			pr = pr / 10;
+			c_div--;
+		}
+		pr = pr % 10;
+		putdigit(pr);
+		div--;
+	}
 }
